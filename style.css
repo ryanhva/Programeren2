@@ -1,3 +1,4 @@
+
 #gamediv{
     font-family: monospace;
     border: 3px solid;
@@ -20,12 +21,8 @@
     color: red;
 }
 
+.scoreDisplay{
+    font-size: 2rem;
+}
+
 /*test*/
-.greenText{
-    color: green;
-
-}
-
-.redText{
-    color: red;
-}

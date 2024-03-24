@@ -18,8 +18,8 @@ choiceButtons.forEach(button => button.addEventListener("click",() => {
    
     player = button.textContent;
     computerTurn();
-    playerText.textContent = `Player: ${player}` ;
-    computerText.textContent = `Computer: ${computer}` ;
+    playerText.textContent = "Player: " + player;
+    computerText.textContent = "Computer: " + computer ;
     resultText.textContent = checkWinner();
 
 }));
@@ -41,35 +41,23 @@ function computerTurn(){
     }
 } 
 
-function checkWinner(){
-    if(player == computer){
+function checkWinner() {
+    if (player == computer) {
         result = "Draw";
-    }
-    else if(computer == "ROCK"){
-        result = (player == "PAPER") ? "You win!" : "You Lose!";
-    }
-    else if(computer == "PAPER"){
-        result = (player == "SCISSORS") ? "You win!" : "You Lose!";
-    }
-    else if(computer == "SCISSORS"){
-        result = (player == "ROCK") ? "You win!" : "You Lose!";
-    }
-
-    switch(result){
-        case "You win!":
+        drawScore++;
+        drawScoreDisplay.textContent = drawScore;
+    } else if (
+        (computer == "ROCK" && player == "PAPER") ||
+        (computer == "PAPER" && player == "SCISSORS") ||
+        (computer == "SCISSORS" && player == "ROCK")
+    ) {
+        result = "You win!";
         playerScore++;
         playerScoreDisplay.textContent = playerScore;
-        break
-
-        case "You Lose!":
-            computerScore++;
-            computerScoreDisplay.textContent = computerScore;
-            break
-
-        case "Draw":
-            drawScore++;
-            drawScoreDisplay.textContent = drawScore;
-            break
+    } else {
+        result = "You Lose!";
+        computerScore++;
+        computerScoreDisplay.textContent = computerScore;
     }
     return result;
 }
